@@ -112,8 +112,6 @@ def amount():
 def recipient():
     recipient = input("Enter beneficiary username: ")
     return recipient
-def exit():
-    return "Thank you for banking with us"
     
 def sign_up():
     for attempts in range(5):
@@ -155,7 +153,7 @@ def menu():
            elif menu=='4':
                print(banker.check_balance())
            elif menu=='5':
-               break
+               return "Thank you"
            else:
                print("invalid option")
    except KeyError:
@@ -164,10 +162,15 @@ def menu():
 def main_menu():
     print("WELCOME TO PROTOTYPE BANK")
     while True:
-        ask = { '1':sign_up, '2':menu, '3':exit}
+        ask = { '1':sign_up, '2':menu}
         select = input("1.Register/2.Login/3.exit: ")
-        ask.get(select,"invalid option")()
-    
+        action=ask.get(select)
+        if action:
+           print(action())
+        elif select == '3':
+           return "Thank you for banking with us"
+        else:
+           print("invalid option")
 print(main_menu())
 
     
