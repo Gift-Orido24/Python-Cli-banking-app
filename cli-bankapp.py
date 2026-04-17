@@ -168,7 +168,7 @@ def main_menu():
         if action:
            print(action())
         elif select == '3':
-           return "Thank you for banking with us"
+           return"Thank you for banking with us"
         else:
            print("invalid option")
 print(main_menu())
